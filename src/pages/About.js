@@ -2,17 +2,19 @@ import React from 'react';
 
 import { Alert, Container } from 'react-bootstrap';
 
+import classes from '../styles/helpers.module.css'
+
 const AboutPage = () => {
   return (
     <Container>
       <Alert variant="success">
-        <Alert.Heading>Hey, nice to see you</Alert.Heading>
-        <p>
+        <Alert.Heading className={classes.centerHeader}>Hey, nice to see you</Alert.Heading>
+        <p className={classes.centerTitle}>
           Aww yeah, you successfully read this important alert message. This
           <br />
-          example text is going to run a bit longer so that you can see how
+          resource is made for tracking games, reviews, prices, platform
           <br />
-          spacing within an alert works with this kind of content.
+          availability and more interesting content.
         </p>
       </Alert>
     </Container>

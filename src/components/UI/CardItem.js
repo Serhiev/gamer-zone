@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import styles from '../../styles/helpers.module.css';
@@ -16,7 +17,7 @@ const CardItem = (props) => {
           <br />
           {props.text2}
         </Card.Text>
-        <Button variant="primary">{props.buttonText}</Button>
+        <Button as={NavLink} to={`/games/${props.id}`} variant="primary">{props.buttonText}</Button>
       </Card.Body>
     </Card>
   );
