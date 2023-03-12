@@ -1,8 +1,9 @@
+import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import HomePage from './pages/Home';
 import AboutPage from './pages/About';
-import GameDetail, {loader as gameDetailLoader} from './pages/GameDetail';
+import GameDetail, { loader as gameDetailLoader } from './pages/GameDetail';
 import RootLayout from './pages/Root';
 
 const router = createBrowserRouter([
@@ -10,11 +11,11 @@ const router = createBrowserRouter([
     path: '/',
     element: <RootLayout />,
     children: [
-      { index: true, element: <HomePage />,},
+      { index: true, element: <HomePage /> },
       { path: '/about', element: <AboutPage /> },
-      { path: '/games/:gameId', element: <GameDetail />, loader: gameDetailLoader,}
-    ]
-  }
+      { path: '/games/:gameId', element: <GameDetail />, loader: gameDetailLoader },
+    ],
+  },
 ]);
 
 function App() {

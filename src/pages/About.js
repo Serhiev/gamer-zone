@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Alert, Container } from 'react-bootstrap';
 
-import classes from '../styles/helpers.module.css'
+import classes from '../styles/helpers.module.css';
 
 const AboutPage = () => {
   return (
     <Container>
-      <Alert variant="success">
+      <Alert variant='success'>
         <Alert.Heading className={classes.centerHeader}>Hey, nice to see you</Alert.Heading>
         <p className={classes.centerTitle}>
           Aww yeah, you successfully read this important alert message. This
