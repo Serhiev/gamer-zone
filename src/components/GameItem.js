@@ -8,6 +8,7 @@ const GameItem = (props) => {
 
     return (
         <CardItem
+            id={props.game.id}
             image={props.game.background_image}
             title={props.game.name}
             text1={rating}
