@@ -13,22 +13,31 @@ const HomePage = () => {
   const releaseDateRedux = useSelector((state) => state.filter.releaseDate);
   const selectedSortRedux = useSelector((state) => state.filter.orderBy);
   const orderTypeRedux = useSelector((state) => state.filter.orderType);
+  const searchQueryRedux = useSelector((state) => state.filter.searchQuery);
 
   useEffect(() => {
     setGameList([]);
     setCurrPage(1);
     setFetching(true);
-  }, [releaseDateRedux, selectedSortRedux, orderTypeRedux]);
+  }, [releaseDateRedux, selectedSortRedux, orderTypeRedux, searchQueryRedux]);
 
   useEffect(() => {
     const fetchData = async () => {
       const KEY = '7e0d6fe87ba64006a05f7a92d338b448';
-      const URL = `https://rawg.io/api/games?
+      let URL;
+      if (searchQueryRedux !== '') {
+        URL = `https://rawg.io/api/games?
+search=${searchQueryRedux}
+&page=${currPage}
+&key=${KEY}`;
+      } else {
+        URL = `https://rawg.io/api/games?
 ordering=${orderTypeRedux}${selectedSortRedux}
 &dates=${releaseDateRedux}-01-01,${releaseDateRedux}-12-31
 &page=${currPage}
 &page_size=10
 &key=${KEY}`;
+      }
 
       const response = await fetch(URL).then((response) => response.json());
       setGameList([...gameList, ...response.results]);

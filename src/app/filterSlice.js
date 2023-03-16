@@ -5,7 +5,7 @@ export const filterSlice = createSlice({
   initialState: {
     orderType: '-',
     orderBy: 'added',
-    releaseDate: 2015,
+    releaseDate: '2022',
     // platformTypes: 'PC',
     searchQuery: '',
   },
